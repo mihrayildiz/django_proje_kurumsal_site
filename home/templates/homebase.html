@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Anasayfa {% endblock %} </title>
+    <meta name = "keywords" content = "{% block keywords %} anasayfa anahtar keimeler {% endblock %}">
+    <meta name = "description" content = "{% block description %} anasayfa anahtar keimeler {% endblock %}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    {% load static %}
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/coin-slider.css' %}" />
+    <script type="text/javascript" src="{% static 'js/cufon-yui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/droid_sans_400-droid_sans_700.font.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.4.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js '%}"></script>
+    <script type="text/javascript" src="{% static 'js/coin-slider.min.js' %}"></script>
+
+    {% block head %} {% endblock %}
+
+</head>
+    {% include 'header.html' %}
+<!--    {% block  sidebar %}  {% endblock %}
+    {% block  slider %}  {% endblock %}-->
+    {% block  content %}  {% endblock %}
+    {% block  body %}  {% endblock %}
+    {% include 'footer.html' %}
+    {% block  footer %}  {% endblock %}
+
+
+<body>
+
+</body>
+</html>
