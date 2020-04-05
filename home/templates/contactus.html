@@ -1,0 +1,30 @@
+{% extends "homebase.html" %}
+
+{% block  title %} Contactus--- {{ setting.school }}  {% endblock %}
+{% block  keywords %} {{ setting.keywords }} {% endblock %}
+{% block  description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+{% endblock %}
+
+{% block  slider %}
+{% include 'slider.html' %}
+{% endblock %}
+
+{% block  body %}
+
+
+
+
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar">
+           {{ setting.contact|safe }}
+        </div>
+          {% include 'sidebar.html' %}
+          <div class="clr"></div>
+    </div>
+  </div>-->
+
+{% endblock %}

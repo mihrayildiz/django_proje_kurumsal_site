@@ -38,7 +38,7 @@ class Announcement(models.Model):
         image = models.ImageField(blank=True, upload_to='images/')
         price = models.FloatField()
         amount = models.IntegerField()
-        #detail = models.TextField()
+        #detail = models.CharField()
         status = models.CharField(max_length=10, choices=STATUS)
          # create_at = models.DataTimeField(auto_now_add=True)
         # update_at = models.DataTimeFiled(auto_now_add=True)
