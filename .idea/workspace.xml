@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="037993b4-a94c-4c5a-b085-919bfd700a88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/templates/contactus.html" afterDir="false" />
+    <list default="true" id="037993b4-a94c-4c5a-b085-919bfd700a88" name="Default Changelist" comment="aboutus contactus ve references eklendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcement/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcement/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +19,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ZdOhTVSroA70syY15cQua4yB57" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -86,7 +77,19 @@
       <option name="presentableId" value="Default" />
       <updated>1585165623644</updated>
     </task>
+    <task id="LOCAL-00001" summary="aboutus contactus ve references eklendi.">
+      <created>1586124236872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586124236872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="aboutus contactus ve references eklendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="aboutus contactus ve references eklendi." />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="79" key="#Inspections" timestamp="1585753584014">
@@ -101,6 +104,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="740" y="208" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1585172727170" />
+    <state x="436" y="16" key="CommitChangelistDialog2" timestamp="1586124763789">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="436" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1586124763789" />
     <state width="944" height="214" key="GridCell.Tab.0.bottom" timestamp="1586110147020">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -121,10 +128,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="477" y="245" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1586094644602" />
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585432070696">
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586124793542">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1585432070696" />
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1586124793542" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1586109865060">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
