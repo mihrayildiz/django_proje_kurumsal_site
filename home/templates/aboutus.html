@@ -4,7 +4,7 @@
 {% block  keywords %} {{ setting.keywords }} {% endblock %}
 {% block  description %} {{ setting.description }} {% endblock %}
 
-{% block head %}
+{% block body %}
 <link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
 {% endblock %}
 
@@ -12,7 +12,8 @@
 {% include 'slider.html' %}
 {% endblock %}
 
-{% block  body %}
+
+{% block  content %}
  <div class="content">
      <div class="content_resize">
     <div class="mainbar">

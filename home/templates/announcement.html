@@ -1,0 +1,69 @@
+{% extends "homebase.html" %}
+
+{% block  title %}  {{ categorydata.title}}  {% endblock %}
+{% block  keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block  description %} {{ categorydata.description }} {% endblock %}
+
+{% block head %}
+<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+{% endblock %}
+
+{% block  slider %}
+{% include 'slider.html' %}
+{% endblock %}
+
+{% block  body %}
+
+
+
+
+ <div class="content">
+            <div class="content_resize">
+
+                 <div class="mainbar">
+
+                     <div class="clr"></div>
+
+                       <div class="article">
+
+                      <h2><span></span>  {{ categorydata.title}} </h2>
+                      <div class="clr"></div>
+                      <div class="comment"> <a href="/announcement/{{rs.id }}/{rs.slug }}">{{ rs.title }}<img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" /></a>
+                        <p><a href="#"></a>
+                          April 20th, 2009 at 2:17 pm</p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+                      </div>
+                      <div class="comment"> <a href="/announcement/{{rs.id }}/{rs.slug }}"> {{ rs.title }}<img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" /></a>
+                        <p><a href="#"></a>
+                          April 20th, 2009 at 3:21 pm</p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+                      </div>
+                      <div class="comment"> <a href="/announcement/{{rs.id }}/{rs.slug }}">{{ rs.title }}<img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" /></a>
+                        <p><a href="#"></a>
+                          April 20th, 2009 at 2:17 pm</p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+                      </div>
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+                  {% include 'sidebar.html' %}
+
+                  <div class="clr"></div>
+        </div>-->
+
+
+
+
+ </div>
+
+
+{% endblock %}

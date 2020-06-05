@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block  title %} Contactus--- {{ setting.school }}  {% endblock %}
+{% block  title %} Log In{{ setting.school }}  {% endblock %}
 {% block  keywords %} {{ setting.keywords }} {% endblock %}
 {% block  description %} {{ setting.description }} {% endblock %}
 
@@ -23,7 +23,7 @@
            {{ setting.contact|safe }}
 
         <div class="article">
-          <h2><span>Send us</span> mail</h2>
+          <h2><span>Log In</span> </h2>
           <div class="clr"></div>
 
             {% if messages %}
@@ -33,15 +33,20 @@
                   </div>
                {% endfor %}
             {% endif %}
-          <form action="#" method="post" id="sendemail">
-              {% csrf_token %}
-              {{form.as_p}}
-              <input type="submit" value="SEND FORM">
+                 <form action="" method="post" id="sendemail">
+                      {% csrf_token %}
+                       <div class="container">
 
-          </form>
+                        <input type="text" placeholder="Enter Username" name="username" class="input" required>
+                        <input type="password" placeholder="Enter Password" name="password" class="input" required>
+                      <input type="submit" value="Log In">
+
+                     </form>
+
+
         </div>
 
-        </div>
+    </div>
           {% include 'sidebar.html' %}
           <div class="clr"></div>
     </div>

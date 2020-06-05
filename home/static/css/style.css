@@ -117,7 +117,7 @@ h1 small {
 .menu_nav ul {
 	list-style:none;
 	padding:16px 0;
-	height:51px;
+/*	height:51px;*/
 	float:left;
 }
 .menu_nav ul li {
@@ -137,6 +137,30 @@ h1 small {
 	text-decoration:none;
 	text-transform:none;
 	text-align:center;
+}
+.dropdown-item{
+color:#000 !important;
+}
+.dropdown-menu show{
+background-color: #88cbf7
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: .1rem;
+  margin-right: .1rem;
 }
 .menu_nav ul li.active a, .menu_nav ul li a:hover {
 	text-decoration:underline;

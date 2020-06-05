@@ -1,30 +1,119 @@
 {% load static %}
+ <script>
+ $(function() {
+    $("#query").autocomplete({
+      source: "/search_auto/",
+      select: function (event, ui) { //item selected
+        AutoCompleteSelectHandler(event, ui)
+      },
+      minLength: 2,
+    });
+  });
+
+  function AutoCompleteSelectHandler(event, ui)
+  {
+    var selectedObj = ui.item;
+  }
+
+</script>
+
 <div class="header">
     <div class="header_resize">
-      <div class="logo">
-        <h1><a href="index.html"> School of Tiny <span>Intelligence</span> <small> Everything for master tiny intelligence</small></a></h1>
-      </div>
-      <div class="searchform">
-        <form id="formsearch" name="formsearch" method="post" action="#">
+        <div class="logo">
+            <h1><a href="index.html"> School of Tiny <span>Intelligence</span> <small> Everything for master tiny
+                intelligence</small></a></h1>
+        </div>
+        <div class="searchform">
+            <form method="post" action=/search/>
           <span>
-          <input name="editbox_search" class="editbox_search" id="editbox_search" maxlength="80" value="Search our ste:" type="text" />
-          </span>
-          <input name="button_search" src="{% static 'images/search.gif' %}" class="button_search" type="image" />
-        </form>
-      </div>
-      <div class="clr"></div>
-      <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="/homepage"><span>Home Page</span></a></li>
-           <li><a href="about.html"><span> Students</span></a></li>
-          <li><a href="blog.html"><span>Teachers</span></a></li>
-          <li><a href="support.html"><span>Announcement</span></a></li>
-           <li><a href="/references">Reference</a></li>
-          <li><a href="/aboutus"><span>About Us</span></a></li>
-          <li><a href="/contactus"><span>Contact Us</span></a></li>
-        </ul>
-      </div>
+              {% csrf_token %}
 
-      {% include 'slider.html' %}
+              <input name="query" id="query" class="input search-input"  placeholder="Search our ste:"  type="text"/>
+
+               {% load mptt_tags %}
+              <select name="catid" class="input search-categories">
+                  <option value ="0">All Categories</option>
+
+                  {% recursetree category %}
+                       {% if  node.is_leaf_node %}
+                           <option value ="{{ node.id }}">{{ node.title }}</option>
+                       {% endif %}
+                       {% if not node.is_leaf_node %}
+                           <optgroup label="{{ node.title }}">
+                               {{ children }}
+                           </optgroup>
+                       {% endif %}
+                  {% endrecursetree %}
+
+              </select>
+          </span>
+                <button class="search-btn"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="clr"></div>
+        <div class="menu_nav">
+            <ul>
+                <li class="active"><a href="/homepage"><span>Home Page</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="blog.html"><span>Information</span></a>
+
+
+                    {% load mptt_tags %}
+
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% recursetree category %}
+                        {% if not node.is_leaf_node %}
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">{{ node.title }}</a>
+<!--                            {{ children }}-->
+                                <ul class="dropdown-menu">
+                                    <li><a href="/category/{{ node.id }}/{{ node.slug }}" class="dropdown-item" href="#"> {{ children }}</a></li>
+                                </ul>
+                        </li>
+                        {% else %}
+                        <li><a href="/category/{{ node.id }}/{{ node.slug }}" class="dropdown-item" href="#">{{ node.title }}</a></li>
+
+                        {% endif %}
+                        {% endrecursetree %}
+                    </ul>
+
+                </li>
+                <li><a href="/references">Reference</a></li>
+                <li><a href="/aboutus"><span>About Us</span></a></li>
+                <li><a href="/contactus"><span>Contact Us</span></a></li>
+
+               <div class="pull-right">
+                   <ul class="header-btns">
+                       <li class="header-account dropdown default-dropdown">
+                           {% if user.id is not None %}
+                           <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                               <div class="header-btns-icon">
+                                   <i class="fa fa-user-o"></i>
+                               </div>
+                               <strong class ="text-uppercase"> {{ user.first_name }} <i class="fa fa-caret-down"></i></strong>
+                           </div>
+                           {% else %}
+                           <a href="/login/" class ="text-uppercase"> Log in</a> / <a href="/join/" class ="text-uppercase"> Join</a></a>
+                           {% endif %}
+                           <ul class="custom-menu">
+                               <li><a href="#"> <i class=" fa fa-user-o"> My Account</i></a> </li>
+                                <li><a href="#"> <i class=" fa fa-check"> My Comments</i></a> </li>
+                                <li><a href="/logout/"> <i class=" fa fa-unlock-alt"> Logout</i></a> </li>
+
+                           </ul>
+                       </li>
+                   </ul>
+
+               </div>
+
+
+
+
+            </ul>
+        </div>
+
+        {% include 'slider.html' %}
     </div>
- </div>
+</div>

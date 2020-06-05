@@ -3,35 +3,53 @@
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-          <h2><span>Anıtkabir Trip </span> For Our Tiny</h2>
-          <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a> &nbsp;&nbsp;|&nbsp;&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a> <a href="#" class="com">Comments <span>11</span></a></p>
+            {% for rs in dayannouncement %}
+          <h2><span>{{ rs.title }} </span> </h2>
+          <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a>  <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">click for information.</a></p>
           <div class="clr"></div>
-          <div class="img"><img src="{% static 'images/anıtkabir.jpg' %}" width="650" height="196" alt="" class="fl" /></div>
+          <div class="img"><img src="" width="650" height="196" alt="" class="fl" /></div>
           <div class="post_content">
-            <p>
-1244/5000
-Ataturk's Mausoleum, located in the capital of Turkey is Ankara's Cankaya district of Mustafa Kemal Ataturk's mausoleum.
 
-After Atatürk's death on November 10, 1938, it was announced that on November 13, Atatürk's body would be buried in a monumental tomb to be built in Ankara and the body would remain in Ankara Ethnography Museum until this construction was completed. In line with the report of the commission established by the government in order to determine the place where this monumental tomb will be built, it was decided to build Anıtkabir in Rasattepe at the assembly meeting of the Republican People's Party, which was held on January 17, 1939..</p>
-            <p><strong> Following this decision, while the expropriation works were initiated on the land, a project competition was started on March 1, 1941 in order to determine the design of Anıtkabir.</strong>
+              <p><strong> Following this decision, while the expropriation works were initiated on the land, a project competition was started on March 1, 1941 in order to determine the design of Anıtkabir.</strong></p>
           </div>
           <div class="clr"></div>
+            {% endfor %}
         </div>
         <div class="article">
-          <h2><span>Starting Sites for Robotic Coding </span> for Children and Robotic Coding </h2>
-          <p class="infopost">Posted on <span class="date">29 aug 2016</span> by <a href="#">Admin</a> &nbsp;&nbsp;|&nbsp;&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a> <a href="#" class="com">Comments <span>7</span></a></p>
+                {% for rs in news %}
+            <h2><span>{{ rs.title }} </span></h2>
+          <p class="infopost">Posted on <span class="date">29 aug 2016</span> by <a href="#">Admin</a><a href="/announcement/{{ rs.id }}/{{ rs.slug }}">click for information.</a></p>
           <div class="clr"></div>
-          <div class="img"><img src="{% static 'images/kod.jpg' %}" width="650" height="196" alt="" class="fl" /></div>
+          <div class="img"><img src="" width="100" height="100" alt="" class="fl" /></div>
           <div class="post_content">
-            <p>Developments in robotics have also increased investments and incentives for this area. Due to the fact that it is considered as the technology of the future, many supports are given to this field by both governments and large corporate companies. In our country, coding and robotics education has started to be given in many schools in this field. It is quite easy for children who open their eyes to a digital world to develop in this regard.</p>
-            <p><strong>  As we move towards the days where we will live together with technology, courses, workshops and applications for children and young people are developing and their number is increasing. We are sharing the websites where you can explore computer programming on the internet by maker kids who are curious and open to learning. If you have a child who loves to play, you may want to review this article;</p>
+
+              <p><strong>  As we move towards the days where we will live together with technology, courses, workshops and applications for children and young people are developing and their number is increasing. We are sharing the websites where you can explore computer programming on the internet by maker kids who are curious and open to learning. If you have a child who loves to play, you may want to review this article;</p>
             <p class="spec"><a href="#" class="rm">Read more &raquo;</a></p>
           </div>
           <div class="clr"></div>
+        </div>
+              <div class="article">
+            {% for rs in educations %}
+          <h2><span> {{ rs.title }} </span>   </h2>
+          <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a> &nbsp; <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">
+click for information.</a></p>
+          <div class="clr"></div>
+          <div class="img"><img src="" width="650" height="196" alt="" class="fl" /></div>
+          <div class="post_content">
+
+              <p><strong> Following this decision, while the expropriation works were initiated on the land, a project competition was started on March 1, 1941 in order to determine the design of Anıtkabir.</strong></p>
+          </div>
+          <div class="clr"></div>
+            {% endfor %}
         </div>
         <p class="pages"><small>Page 1 of 2</small> <span>1</span> <a href="#">2</a> <a href="#">&raquo;</a></p>
       </div>
       {% include 'sidebar.html' %}
       <div class="clr"></div>
+        {% endfor %}
     </div>
-  </div>
+
+
+
+    </div>
+</div>

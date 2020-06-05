@@ -1,0 +1,47 @@
+{% extends "homebase.html" %}
+
+{% block  title %} Product Search Result  {% endblock %}
+{% block  keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block  description %} {{ categorydata.description }} {% endblock %}
+
+{% block body %}
+<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+{% endblock %}
+
+{% block  slider %}
+{% include 'slider.html' %}
+{% endblock %}
+
+
+{% block  content %}
+ <div class="content">
+     <div class="content_resize">
+    <div class="mainbar">
+        <li class="active">{{ categorydata.title }}</li>
+
+
+        <table cellpadding="3" width="80">
+            <tr>
+                <th>Image</th>
+                <th>Announcement Name</th>
+                 <th>Category</th>
+
+            </tr>
+
+            {% for rs in announcement %}
+                <tr>
+                    <td> <a href="/announcement/{{ rs.id }}/{{ rs.slug }}"><img src =" {{ rs.image.url }} " height="70" weight="70"></a></td>
+                    <td> <h4 class= "announcement_name"><a href="/announcement/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }} </a></h4></td>
+                    <td> <a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}"><h4>{{ rs.category }} </h4></a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+          </div>
+
+            {% include 'sidebar.html' %}
+          <div class="clr"></div>
+    </div>
+  </div>
+
+{% endblock %}
