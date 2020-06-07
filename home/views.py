@@ -6,8 +6,8 @@ from django.shortcuts import render
 from django.contrib import messages
 
 from announcement.models import Category, Announcement, Images, Comment
-from home.forms import SearchForm
-from home.models import Settings,ContactFormu,ContactFormMessage
+from home.forms import SearchForm, JoinForm
+from home.models import Settings, ContactFormu, ContactFormMessage, UserProfile, FAQ
 
 
 def index(request):
@@ -166,3 +166,37 @@ def login_view(request):
 
     context = {'category':category,}
     return render(request, 'login.html', context)
+
+def join_view(request):
+    if request.method == 'POST':
+            form = JoinForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                password = form.cleaned_data.get('password1')
+                user = authenticate(username=username, password=password)
+                login(request, user)
+                current_user =request.user
+                data = UserProfile()
+                data.user_id = current_user.id
+                data.image ="images/users/iconuser.jpg"
+                data.save()
+                messages.success(request,"Kullanıcı oluşturuldu.")
+
+                    # Redirect to a success page.
+                return HttpResponseRedirect('/')
+    form = JoinForm()
+
+    category = Category.objects.all()
+
+    context = {'category': category,
+               'form': form,}
+    return render(request, 'join.html', context)
+
+
+def faq(request):
+    category = Category.objects.all()
+    faq= FAQ.objects.all().order_by('ordernumber')
+    context = {'category': category,
+               'faq': faq, }
+    return render(request, 'fag.html', context)

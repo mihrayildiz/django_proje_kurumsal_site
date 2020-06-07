@@ -34,6 +34,10 @@ urlpatterns = [
     path('search_auto/', views.announcement_search_auto, name='announcement_search_auto'),
     path('logout/', views.logout_view, name='logout_view'),
     path('login/', views.login_view, name='login_view'),
+    path('join/', views.join_view, name='join_view'),
+    path('user/', include('user.urls')),
+    path('faq/', views.faq, name='faq'),
+
 ]
 
 

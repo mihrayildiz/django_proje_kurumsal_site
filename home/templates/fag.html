@@ -1,0 +1,64 @@
+{% extends "homebase.html" %}
+
+{% block  title %} Sıkça Sorulan Sorular  {% endblock %}
+{% block  keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block  description %} {{ categorydata.description }} {% endblock %}
+
+{% block body %}
+<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+
+
+ <!-- <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>--->
+
+{% endblock %}
+
+
+{% block  slider %}
+{% include 'slider.html' %}
+{% endblock %}
+
+
+{% block  content %}
+ <div class="content">
+     <div class="content_resize">
+    <div class="mainbar">
+        <li class="active">Sıkça Sorulan Sorular</li>
+
+
+        <div id="accordion">
+
+           {% for rs in faq %}
+            <h3> {{ rs.question }}</h3>
+            <div>
+                <p>
+              {{ rs.answer }}
+                </p>
+
+                {% endfor %}
+            </div>
+         <!--  <table cellpadding="3" width="80">
+
+
+
+        {% for rs in faq %}      <tr>
+                    <td>{{ rs.question }} </td>
+
+                </tr>
+             <tr>
+                    <td>{{ rs.answer }} </td>
+
+                </tr>
+            {% endfor %}
+        </table>-->
+          </div>
+
+            {% include 'sidebar.html' %}
+          <div class="clr"></div>
+    </div>
+  </div>
+
+{% endblock %}

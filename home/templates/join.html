@@ -1,0 +1,61 @@
+{% extends "homebase.html" %}
+
+{% block  title %} Join In {{ setting.school }}  {% endblock %}
+{% block  keywords %} {{ setting.keywords }} {% endblock %}
+{% block  description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+{% endblock %}
+
+{% block  slider %}
+{% include 'slider.html' %}
+{% endblock %}
+
+{% block  body %}
+
+
+
+
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar">
+           {{ setting.contact|safe }}
+
+        <div class="article">
+          <h2><span>Join In</span> </h2>
+          <div class="clr"></div>
+
+            {% if messages %}
+               {%for message in messages %}
+                  <div class=" alert-alert-{{message.tags}}" role="alert">
+                      {{message}}
+                  </div>
+               {% endfor %}
+            {% endif %}
+             <form  method="post" >
+                      {% csrf_token %}
+                      {% for field in form %}
+                         <p>
+                             {{ field.label_tag }}<br>
+                             {{ field }}
+                             {% if field.help_text %}
+                                <small style="color: grey"> {{ field.help_text }}</small>
+                             {% endif %}
+                             {% for error in field.errors %}
+                                 <p style="color: red"> {{ error }}</p>
+                             {% endfor %}
+                         </p>
+                      {% endfor %}
+                      <button type ="submit">Join In</button>
+
+                 </form>
+
+
+    </div>
+          {% include 'sidebar.html' %}
+          <div class="clr"></div>
+    </div>
+  </div>-->
+
+{% endblock %}
