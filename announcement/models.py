@@ -1,3 +1,4 @@
+from ckeditor.widgets import CKEditorWidget
 from django.contrib.auth.models import User
 from django.db import models
 #from ckeditor.widgets import CKEditorWidget
@@ -93,7 +94,7 @@ class AnnouncementForm(ModelForm):
             'image': FileInput(attrs={'class': 'input', 'placeholder': 'image'}),
             'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'keywords'}),
             'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
-            'detail':  TextInput(attrs={'class': 'input', 'placeholder': 'detail'})
+            'detail':  CKEditorWidget(),
         }
 
 
@@ -129,8 +130,6 @@ class CommentForm(ModelForm):
 
 
 
-
-
 class Images (models.Model):
     announcement = models.ForeignKey(Announcement,on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True)
@@ -143,6 +142,17 @@ class Images (models.Model):
         return mark_safe('<img src="{}" height ="50/>'.format(self.image.url))
 
     image_tag.short_description = 'Image'
+
+
+class AnnouncementImageForm(ModelForm):
+    class Meta:
+        model = Images
+        fields = ['title','image']
+
+
+
+
+
 
 
 

@@ -27,6 +27,7 @@ urlpatterns = [
     path('contactus/', views.contactus, name='contactus'),
     path('admin/', admin.site.urls),
     path('home/', include('home.urls')),
+    path('menu/', include('menu.urls')),
     path('announcement/', include('announcement.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_products, name ='category_products'),
     path('announcement/<int:id>/<slug:slug>/', views.announcement_detail, name='announcement_detail'),
@@ -37,6 +38,13 @@ urlpatterns = [
     path('join/', views.join_view, name='join_view'),
     path('user/', include('user.urls')),
     path('faq/', views.faq, name='faq'),
+    path('menu/<int:id>', views.menu, name='menu'),
+    path('menu/<int:id>/<slug:slug>', views.content_detail, name='content_detail'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
+
+
+
 
 ]
 

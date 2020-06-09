@@ -57,9 +57,10 @@
         <div class="menu_nav">
             <ul>
                 <li class="active"><a href="/"><span>Home Page</span></a></li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="blog.html"><span>Information</span></a>
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="blog.html"><span>Announcement</span></a>
 
 
                     {% load mptt_tags %}
@@ -83,6 +84,35 @@
                     </ul>
 
                 </li>
+                 {% if  menu %}
+                 <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="blog.html"><span>Okulumuz</span></a>
+
+
+                    {% load mptt_tags %}
+
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% recursetree menu %}
+                        {% if not node.is_leaf_node %}
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">{{ node.title }}</a>
+<!--                            {{ children }}-->
+                            <ul class="dropdown-menu">
+                                <li><a href="/menu/{{ node.id }}" class="dropdown-item" href="#"> {{ children }}</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li><a href="/menu/{{ node.id }}" class="dropdown-item" href="#">{{ node.title }}</a></li>
+
+                        {% endif %}
+                        {% endrecursetree %}
+                    </ul>
+
+                </li>
+                {% endif %}
                 <li><a href="/references">Reference</a></li>
                 <li><a href="/aboutus"><span>About Us</span></a></li>
                 <li><a href="/contactus"><span>Contact Us</span></a></li>

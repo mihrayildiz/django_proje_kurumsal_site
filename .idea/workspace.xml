@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="037993b4-a94c-4c5a-b085-919bfd700a88" name="Default Changelist" comment="faq">
-      <change afterPath="$PROJECT_DIR$/user/templates/user_addcontent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_content.html" afterDir="false" />
+    <list default="true" id="037993b4-a94c-4c5a-b085-919bfd700a88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/templates/content_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/menu/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcement/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcement/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/announcement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcement/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/announcement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcement/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/announcement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcement/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/announcement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/announcement_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/announcement_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/forms..py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -49,13 +46,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Django\project\user" />
       <recent name="C:\Django\project\home\templates" />
+      <recent name="C:\Django\project\user" />
       <recent name="C:\Django\project\user\templates" />
     </key>
   </component>
@@ -154,14 +151,22 @@
       <option name="project" value="LOCAL" />
       <updated>1591537284710</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gallery ekleme">
+      <created>1591735386168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1591735386168</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="aboutus contactus ve references eklendi." />
     <MESSAGE value="user profil" />
     <MESSAGE value="faq" />
-    <option name="LAST_COMMIT_MESSAGE" value="faq" />
+    <MESSAGE value="gallery ekleme" />
+    <option name="LAST_COMMIT_MESSAGE" value="gallery ekleme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="79" key="#Inspections" timestamp="1589409761130">
@@ -176,10 +181,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="740" y="208" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1585172727170" />
-    <state x="436" y="16" key="CommitChangelistDialog2" timestamp="1591725154083">
+    <state x="436" y="16" key="CommitChangelistDialog2" timestamp="1591735382651">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="436" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1591725154083" />
+    <state x="436" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1591735382651" />
     <state x="548" y="175" key="FileChooserDialogImpl" timestamp="1589734511220">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -220,14 +225,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="608" y="131" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1591396674444" />
-    <state x="279" y="63" key="SettingsEditor" timestamp="1591135531303">
+    <state x="279" y="63" key="SettingsEditor" timestamp="1591739407421">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="279" y="63" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1591135531303" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1591537295192">
+    <state x="279" y="63" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1591739407421" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1591735391506">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1591537295192" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1591735391506" />
     <state x="477" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1591723365993">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

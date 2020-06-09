@@ -39,3 +39,5 @@ def addcomment(request,id):
 
     messages.error(request,"yorum kaydedilmei")
     return HttpResponseRedirect(url)
+
+
