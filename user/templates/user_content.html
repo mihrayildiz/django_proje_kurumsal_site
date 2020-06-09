@@ -1,0 +1,67 @@
+{% extends "homebase.html" %}
+
+{% block  title %} {{ profile.user_name }}  {% endblock %}
+{% block  keywords %} {{ setting.keywords }} {% endblock %}
+{% block  description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+{% endblock %}
+
+{% block  slider %}
+{% include 'slider.html' %}
+{% endblock %}
+
+{% block  body %}
+
+
+
+
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar">
+
+
+        <div class="article">
+            <h2><span>content</span></h2>
+          <!--  <tr>-->
+                <th class="text-left">
+                    <a href="/user/addcontent" class = primary-btn>add content</a>
+
+                </th>
+            </tr>
+             <table cellpadding="20" width="80">
+             <tr>
+                 <th class="text-left"> Image</th>
+                  <th class="text-left"> Title</th>
+                  <th class="text-left"> Type</th>
+                  <th class="text-left"> Menu</th>
+                  <th class="text-left"> Status</th>
+                  <th class="text-left"> Detail</th>
+             </tr>
+
+                 {% for rs in contents %}
+                     <tr>
+                        <td  class="text-left">
+                         &nbsp; <a href="/content/{{ rs.id }}/{{ rs.slug }}">
+                         <td  class="text-left"> <img src = "{{ rs.image.url }}"> </a></td>
+
+                         <td  class="text-left"> {{ rs.title }}</td>
+                         <td  class="text-left"> {{ rs.type }}</td>
+                         <td  class="text-left"> {{ rs.menu.title }}</td>
+                         <td  class="text-left"> {{ rs.status }}</td>
+                          <td  class="text-left"> <a href = "/user/contentedit/{{ rs.id }}">Edit</a></td>
+                         <td  class="text-left"> <a class=" primary-btn" href="/user/contentdelete/{{ rs.id }}" onclick="return confirm('Are you Sure')">Delete </a></td>
+                     </tr>
+                 {% endfor %}
+
+
+             </table>
+        </div>
+        </div>
+         {% include "user_panel.html" %}
+          <div class="clr"></div>
+    </div>
+  </div>
+
+{% endblock %}

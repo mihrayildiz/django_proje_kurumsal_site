@@ -5,7 +5,7 @@
 {% block  description %} {{ announcement.description }} {% endblock %}
 
 {% block body %}
-<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+<link rel='shortcut icon' type="image/icon" href='{{setting.icon.url}}'/>
 {% endblock %}
 
 {% block  slider %}
@@ -14,82 +14,159 @@
 
 
 {% block  content %}
- <div class="content">
-     <div class="content_resize">
-    <div class="mainbar">
-       <div class="article">
-          <h2><span>{{ announcement.title }} </span>  </h2>
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar">
+            <div class="article">
+                <div class="comment">
+                    <h2><span>{{ announcement.title }}</span></h2>
+                    <a>
+                        <img src="{{ announcement.image.url }}" width="300" height="200" alt="" class="userpic"/>
+                    </a>
 
-          <div class="clr"></div>
-
-          < class="sb_menu">
-            <li><a href="/category/{{ announcement.category_id }}/{{ announcement.category.slug }}"><strong>{{ announcement.category }} </strong></a></li>
-            <li><a href="#"><strong>Lorem ipsum</strong></a></li>
-
-             <div class="comment"> <a href="#"><img src="{{ announcement.image.url }}" width="200" height="200" alt="" class="userpic" /></a>
-                </div>
-              <div>
                     <p>{{ announcement.description }}</p>
-               <a href="{{ announcement.detail | safe }}">Detail</a>
-              </div>
-
-                {% for rs in images %}
-              <div class="comment"> <a href="#"><img src="{{ rs.image.url }}" width="40" height="40" alt="" class="userpic" /></a>
+                    <p>{{ announcement.detail }} </p>
                 </div>
 
-              {% endfor %}
 
-        <div class="article">
-          <h2><span>Leave a</span> Reply</h2>
-          <div class="clr"></div>
-            {%if messages %}
-                {% for message in messages %}
-                   <div class ="alert-alert- {{message.tags }}" role="alert">
-                                {{ message }}
-                {% endfor %}
-             {% endif %}
-                       <p>your mail nor definited</p>
-                    </div>
-          <form action="/announcement/addcomment/{{ announcement.id }}" method="post">
-              {% csrf_token %}
-            <div>
-
-                <input class = "input" type ="text" id="id_subject" name="subject" placeholder="Subject" />
             </div>
-              <div>
-                  <textarea class = "input" id="id_comment" name="comment" placeholder="Your review"></textarea>
-              </div>
-              <div>
-                  <div>
-                      <strong>Your Rating</strong>
-                      <div class ="stars">
-                          <input type="radio" id="star5" name="rate" value="5"/><label for="star5"></label>
-                           <input type="radio" id="star4" name="rate" value="5"/><label for="star4"></label>
-                           <input type="radio" id="star3" name="rate" value="5"/><label for="star3"></label>
-                           <input type="radio" id="star2" name="rate" value="5"/><label for="star2"></label>
-                           <input type="radio" id="star1" name="rate" value="5"/><label for="star1"></label>
+            <div class="clr"></div>
 
-                      </div>
-                  </div>
-              </div>
-              {% if user.id is not None %}
-              <button class = "primary-btn">Send Comment</button>
-              {% else %}
-                     You must LogIn!
-              {% endif %}
+            <div class="article">
+                {%if comments %}
+                <h2><span>3</span> Responses</h2>
+                <div class="clr"></div>
+                {% for comment in comments %}
+                <div class="comment"><a href="#">{{ comment.subject }}</a>
 
-          </form>
+                    <p>{{ comment.comment }}</p>
+                </div>
+                <!--                {% empty %}-->
+                <!--                <h2><span>0</span> Yotum yokki</h2>-->
+                {% endfor %}
+                {% else %}
+                <h2><span>0</span> Yotum yokki</h2>
+                {% endif %}
+            </div>
+            <div class="article">
+                <h2><span>Leave a</span> Reply</h2>
+                <form action="/announcement/addcomment/{{ announcement.id }}" method="post">
+                    {% csrf_token %}
+                    <ol>
+                        <li>
+                            <label for="id_subject"> Konu (required)</label>
+                            <input class="input form-control" type="text" id="id_subject" name="subject" placeholder="Subject"/>
+                        </li>
 
+                        <li>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                 <!--           <input type="radio" id="star5" name="rate" value="5"/><label
+                                for="star5"></label>
+                            <input type="radio" id="star4" name="rate" value="5"/><label
+                                for="star4"></label>
+                            <input type="radio" id="star3" name="rate" value="5"/><label
+                                for="star3"></label>
+                            <input type="radio" id="star2" name="rate" value="5"/><label
+                                for="star2"></label>
+                            <input type="radio" id="star1" name="rate" value="5"/><label
+                                for="star1"></label>-->
+                        </li>
+                        <li>
+                            <label for="id_comment">Your Message</label>
+                            <textarea class="input form-control" id="id_comment" name="comment"
+                                      placeholder="Your review"></textarea>
+                        </li>
+                        <li>
+                            {% if user.id is not None %}
+                            <button class="primary-btn">Send Comment</button>
+                            {% else %}
+                            You must LogIn!
+                            {% endif %}
+                        </li>
+                    </ol>
+                </form>
+            </div>
+            <!-- <div class="article">
+                     <h2><span>Leave a</span> Reply</h2>
+                     <div class="clr"></div>
+                     {%if messages %}
+                     {% for message in messages %}
+                     <div class="alert-alert- {{ message.tags }}" role="alert">
+                         {{ message }}
+                         {% endfor %}
+                         {% endif %}
+                         <p>your mail nor definited</p>
+                     </div>
+                     <form action="/announcement/addcomment/{{ announcement.id }}" method="post">
+                         {% csrf_token %}
+                         <div>
+
+                             <input class="input" type="text" id="id_subject" name="subject" placeholder="Subject"/>
+                         </div>
+                         <div>
+                                 <textarea class="input" id="id_comment" name="comment"
+                                           placeholder="Your review"></textarea>
+                         </div>
+                         <div>
+                             <div>
+                                 <strong>Your Rating</strong>
+                                 <div class="stars">
+                                     <input type="radio" id="star5" name="rate" value="5"/><label
+                                         for="star5"></label>
+                                     <input type="radio" id="star4" name="rate" value="5"/><label
+                                         for="star4"></label>
+                                     <input type="radio" id="star3" name="rate" value="5"/><label
+                                         for="star3"></label>
+                                     <input type="radio" id="star2" name="rate" value="5"/><label
+                                         for="star2"></label>
+                                     <input type="radio" id="star1" name="rate" value="5"/><label
+                                         for="star1"></label>
+
+                                 </div>
+                             </div>
+                         </div>
+                         {% if user.id is not None %}
+                         <button class="primary-btn">Send Comment</button>
+                         {% else %}
+                         You must LogIn!
+                         {% endif %}
+
+                     </form>
+
+
+                 </div>-->
+            <!--            <div class="article">
+                <h2><span>{{ announcement.title }} </span></h2>
+
+                <div class="clr"></div>
+
+                <div class="sb_menu">
+&lt;!&ndash;                    <li><a href="/category/{{ announcement.category_id }}/{{ announcement.category.slug }}">&ndash;&gt;
+&lt;!&ndash;                        <strong>{{ announcement.category }} </strong></a></li>&ndash;&gt;
+&lt;!&ndash;                    <li><a href="#"><strong>Lorem ipsum</strong></a></li>&ndash;&gt;
+
+                    <div class="comment"><a href="#"><img src="{{ announcement.image.url }}" width="200" height="200"
+                                                          alt="" class="userpic"/></a>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>-->
 
         </div>
 
-
-        </div>
-          </div>
-
-            {% include 'sidebar.html' %}
-          <div class="clr"></div>
+        <div class="clr"></div>
     </div>
-  </div>
+</div>
 
 {% endblock %}

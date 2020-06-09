@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+#from ckeditor.widgets import CKEditorWidget
 # Create your models here.
-from django.forms import ModelForm
+from django.forms import ModelForm, Select, TextInput, FileInput
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from mptt.fields import TreeForeignKey
@@ -56,14 +56,12 @@ class Announcement(models.Model):
         ('False', 'Hayır'),
 
     )
-
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     image = models.ImageField(blank=True, upload_to='images/')
-    price = models.FloatField()
-    amount = models.IntegerField()
     detail = models.CharField(max_length=255)
     slug = models.SlugField(null=False, unique=True)
     status = models.CharField(max_length=10, choices=STATUS)
@@ -80,6 +78,24 @@ class Announcement(models.Model):
 
     def get_absolute_url(self):
         return reverse('announcement_detail', kwargs={'slug': self.slug})
+
+
+
+
+class AnnouncementForm(ModelForm):
+    class Meta:
+        model = Announcement
+        fields = ['category', 'title', 'slug', 'image', 'keywords', 'description', 'detail']
+        widgets = {
+            'category': Select(attrs={'class': 'input', 'placeholder': 'type'}, choices=Category.objects.all()),
+            'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
+            'slug': TextInput(attrs={'class': 'input', 'placeholder': 'slug '}),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'image'}),
+            'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'keywords'}),
+            'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
+            'detail':  TextInput(attrs={'class': 'input', 'placeholder': 'detail'})
+        }
+
 
 class Comment(models.Model):
     STATUS = (

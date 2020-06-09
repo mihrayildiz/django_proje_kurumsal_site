@@ -27,22 +27,16 @@
                        <div class="article">
 
                       <h2><span></span>  {{ categorydata.title}} </h2>
+                            {% for rs in announcement %}
                       <div class="clr"></div>
-                      <div class="comment"> <a href="/announcement/{{rs.id }}/{rs.slug }}">{{ rs.title }}<img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" /></a>
-                        <p><a href="#"></a>
-                          April 20th, 2009 at 2:17 pm</p>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+                      <div class="comment">
+                          <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}
+                              <img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" />
+                          </a>
+
+                        <p>{{ rs.description }}</p>
                       </div>
-                      <div class="comment"> <a href="/announcement/{{rs.id }}/{rs.slug }}"> {{ rs.title }}<img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" /></a>
-                        <p><a href="#"></a>
-                          April 20th, 2009 at 3:21 pm</p>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
-                      </div>
-                      <div class="comment"> <a href="/announcement/{{rs.id }}/{rs.slug }}">{{ rs.title }}<img src="{{ rs.image.url }}" width="300" height="200" alt="" class="userpic" /></a>
-                        <p><a href="#"></a>
-                          April 20th, 2009 at 2:17 pm</p>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
-                      </div>
+                           {% endfor %}
 
 
                     </div>
@@ -55,7 +49,7 @@
 
 
 
-                  {% include 'sidebar.html' %}
+<!--                  {% include 'sidebar.html' %}-->
 
                   <div class="clr"></div>
         </div>-->

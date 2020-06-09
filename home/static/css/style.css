@@ -177,8 +177,8 @@ background-color: #88cbf7
 .content .mainbar {
 	margin:0;
 	padding:0;
-	float:right;
-	width:690px;
+/*	float:right;
+	width:690px;*/
 }
 .content .mainbar h2 {
 	margin-bottom:0;

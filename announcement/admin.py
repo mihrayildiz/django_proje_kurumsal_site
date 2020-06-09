@@ -18,7 +18,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
-    list_display=['title', 'category','price','amount','status', 'image_tag']
+    list_display=['title', 'category','status', 'image_tag']
     readonly_fields = ('image_tag',)
     list_filter = ['status','category']
     inlines = [AnnouncementImageInline]

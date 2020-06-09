@@ -1,55 +1,61 @@
 {% load static %}
-<div class=  "content">
+<div class=  "content col-lg-12 col-md-12">
     <div class="content_resize">
-      <div class="mainbar">
-        <div class="article">
-            {% for rs in dayannouncement %}
-          <h2><span>{{ rs.title }} </span> </h2>
-          <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a>  <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">click for information.</a></p>
-          <div class="clr"></div>
-          <div class="img"><img src="" width="650" height="196" alt="" class="fl" /></div>
-          <div class="post_content">
+        <div class="mainbar">
+            <h2><span>DUYURU </span> </h2>
+            {% for rs in announcement %}
+            <div class="article " >
+                <h2><span>{{ rs.title }} </span> </h2>
+                <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a>  <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">click for information.</a></p>
+                <div class="clr"></div>
+                <div class="img"><img src="" width="650" height="196" alt="" class="fl" /></div>
+                <div class="post_content">
 
-              <p><strong> Following this decision, while the expropriation works were initiated on the land, a project competition was started on March 1, 1941 in order to determine the design of Anıtkabir.</strong></p>
-          </div>
-          <div class="clr"></div>
+                    <p><strong>{{ rs.detail }}</strong></p>
+                </div>
+                <div class="clr"></div>
+
+            </div>
             {% endfor %}
-        </div>
-        <div class="article">
-                {% for rs in news %}
-            <h2><span>{{ rs.title }} </span></h2>
-          <p class="infopost">Posted on <span class="date">29 aug 2016</span> by <a href="#">Admin</a><a href="/announcement/{{ rs.id }}/{{ rs.slug }}">click for information.</a></p>
-          <div class="clr"></div>
-          <div class="img"><img src="" width="100" height="100" alt="" class="fl" /></div>
-          <div class="post_content">
+            <h2><span>HABER</span> </h2>
+            {% for rs in news %}
+            <div class="article ">
 
-              <p><strong>  As we move towards the days where we will live together with technology, courses, workshops and applications for children and young people are developing and their number is increasing. We are sharing the websites where you can explore computer programming on the internet by maker kids who are curious and open to learning. If you have a child who loves to play, you may want to review this article;</p>
-            <p class="spec"><a href="#" class="rm">Read more &raquo;</a></p>
-          </div>
-          <div class="clr"></div>
-        </div>
-              <div class="article">
+                <h2><span>{{ rs.title }} </span></h2>
+                <p class="infopost">Posted on <span class="date">29 aug 2016</span> by <a href="#">Admin</a><a href="/announcement/{{ rs.id }}/{{ rs.slug }}">click for information.</a></p>
+                <div class="clr"></div>
+                <div class="img"><img src="" width="100" height="100" alt="" class="fl" /></div>
+                <div class="post_content">
+
+                    <p><strong>  As we move towards the days where we will live together with technology, courses, workshops and applications for children and young people are developing and their number is increasing. We are sharing the websites where you can explore computer programming on the internet by maker kids who are curious and open to learning. If you have a child who loves to play, you may want to review this article;</p>
+                    <p class="spec"><a href="#" class="rm">Read more &raquo;</a></p>
+                </div>
+                <div class="clr"></div>
+            </div>
+            {% endfor %}
+            <h2><span>ETKINLIK</span> </h2>
             {% for rs in educations %}
-          <h2><span> {{ rs.title }} </span>   </h2>
-          <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a> &nbsp; <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">
-click for information.</a></p>
-          <div class="clr"></div>
-          <div class="img"><img src="" width="650" height="196" alt="" class="fl" /></div>
-          <div class="post_content">
+            <div class="article">
 
-              <p><strong> Following this decision, while the expropriation works were initiated on the land, a project competition was started on March 1, 1941 in order to determine the design of Anıtkabir.</strong></p>
-          </div>
-          <div class="clr"></div>
+                <h2><span> {{ rs.title }} </span>   </h2>
+                <p class="infopost">Posted on <span class="date">11 sep 2018</span> by <a href="#">Admin</a> &nbsp; <a href="/announcement/{{ rs.id }}/{{ rs.slug }}">
+                    click for information.</a></p>
+                <div class="clr"></div>
+                <div class="img"><img src="" width="650" height="196" alt="" class="fl" /></div>
+                <div class="post_content">
+
+                    <p><strong> Following this decision, while the expropriation works were initiated on the land, a project competition was started on March 1, 1941 in order to determine the design of Anıtkabir.</strong></p>
+                </div>
+                <div class="clr"></div>
+
+            </div>
             {% endfor %}
+            <p class="pages"><small>Page 1 of 2</small> <span>1</span> <a href="#">2</a> <a href="#">&raquo;</a></p>
         </div>
-        <p class="pages"><small>Page 1 of 2</small> <span>1</span> <a href="#">2</a> <a href="#">&raquo;</a></p>
-      </div>
-      {% include 'sidebar.html' %}
-      <div class="clr"></div>
-        {% endfor %}
-    </div>
-
-
 
     </div>
+
+
+
+</div>
 </div>

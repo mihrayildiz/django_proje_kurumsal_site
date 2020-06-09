@@ -13,28 +13,33 @@ from home.models import Settings, ContactFormu, ContactFormMessage, UserProfile,
 def index(request):
     setting = Settings.objects.get(pk =1)
     category = Category.objects.all()
-    dayannouncement = Announcement.objects.all()[:1]
-    news = Announcement.objects.all().order_by('id')[:1]
-    educations = Announcement.objects.all().order_by('id')[:1]
+    announcement = Announcement.objects.filter(category_id=15)
+    # announcement = Announcement.objects.all()
+    news = Announcement.objects.filter(category_id=17)
+    educations = Announcement.objects.filter(category_id=16)
+    #menu =Menu.objects.all()
 
-    context = {'setting': setting,
-               'page': 'aboutus',
+    context = {
+        'setting': setting,
+               'page': 'home',
                'category': category,
-               'dayannouncement' : dayannouncement,
-               'news': news,
+               'announcement' : announcement,
+              'news': news,
                'educations' :educations,
                }
     return render(request, 'index.html', context)
 
 
 def aboutus(request):
-    setting = Settings.objects.get(pk =1)
-    context = {'setting': setting}
+    category = Category.objects.all()
+    setting = Settings.objects.get(pk=1)
+    context = {'setting': setting,'category': category,}
     return render(request, 'aboutus.html', context)
 
 def references(request):
-    setting = Settings.objects.get(pk =1)
-    context = {'setting': setting, 'page': 'aboutus'}
+    category = Category.objects.all()
+    setting = Settings.objects.get(pk=1)
+    context = {'setting': setting, 'page': 'aboutus','category': category,}
     return render(request, 'references.html', context)
 
 
@@ -51,10 +56,10 @@ def contactus(request):
             data.save()
             messages.success(request, "Mesaj Gönderilmiştir. İlginize Teşekkürler")
             return HttpResponseRedirect('/contactus')
-
+    category = Category.objects.all()
     setting = Settings.objects.get(pk=1)
     form = ContactFormu()
-    context = {'setting': setting, 'form': form}
+    context = {'setting': setting, 'form': form,'category': category,}
     return render(request, 'contactus.html', context)
 
 
@@ -74,10 +79,10 @@ def iletisim(request):
                 data.save()
                 messages.success(request, "Mesaj Gönderilmiştir. İlginize Teşekkürler")
                 return HttpResponseRedirect('/iletisim')
-
+      category = Category.objects.all()
       setting = Settings.objects.get(pk=1)
       form = ContactFormu()
-      context = {'setting': setting, 'form' : form}
+      context = {'setting': setting, 'form' : form,'category': category,}
       return render(request, 'contactus.html', context)
 
 def category_products(request,id,slug):
@@ -95,11 +100,11 @@ def announcement_detail(request,id,slug):
     category = Category.objects.all()
     announcement = Announcement.objects.get(pk=id)
     images = Images.objects.filter(announcement_id =id)
-    comment = Comment.objects.filter(announcement_id =id, status ='True')
-    context = {# 'announcement': announcement,
+    comments = Comment.objects.filter(announcement_id =id, status ='True')
+    context = { 'announcement': announcement,
                'category': category,
                'images': images,
-             'comment': comment,
+             'comments': comments,
 
                }
 
