@@ -5,14 +5,14 @@
 {% block  description %} {{ categorydata.description }} {% endblock %}
 
 {% block body %}
-<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+<link rel='shortcut icon' type="image/icon" href='{{setting.icon.url}}'/>
 
 
- <!-- <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-  </script>--->
+<!-- <script>
+ $( function() {
+   $( "#accordion" ).accordion();
+ } );
+ </script>--->
 
 {% endblock %}
 
@@ -23,42 +23,34 @@
 
 
 {% block  content %}
- <div class="content">
-     <div class="content_resize">
-    <div class="mainbar">
-        <li class="active">Sıkça Sorulan Sorular</li>
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar">
+            <strong>Sıkça Sorulan Sorular</strong>
+            <div id="accordion">
+                 {% for rs in faq %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                {{ rs.question }}
+                            </button>
+                        </h5>
+                    </div>
 
-
-        <div id="accordion">
-
-           {% for rs in faq %}
-            <h3> {{ rs.question }}</h3>
-            <div>
-                <p>
-              {{ rs.answer }}
-                </p>
-
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                           {{ rs.answer }}
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
-         <!--  <table cellpadding="3" width="80">
 
 
-
-        {% for rs in faq %}      <tr>
-                    <td>{{ rs.question }} </td>
-
-                </tr>
-             <tr>
-                    <td>{{ rs.answer }} </td>
-
-                </tr>
-            {% endfor %}
-        </table>-->
-          </div>
-
-            {% include 'sidebar.html' %}
-          <div class="clr"></div>
+        </div>
     </div>
-  </div>
 
-{% endblock %}
+    {% endblock %}
+</div>

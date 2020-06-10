@@ -5,7 +5,7 @@
 {% block  description %} {{ setting.description }} {% endblock %}
 
 {% block head %}
-<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+<link rel='shortcut icon' type="image/icon" href='{{setting.icon.url}}'/>
 {% endblock %}
 
 {% block  slider %}
@@ -15,50 +15,57 @@
 {% block  body %}
 
 
-
-
 <div class="content">
     <div class="content_resize">
-        <div class="mainbar">
+        <div class="sidebar">
+            {% include "user_panel.html" %}
 
-
-        <div class="article">
-            <h2><span>User Comments </span></h2>
-            <tr>
-                <th class="text-left">
-                    <a href="/user/update" class = primary-btn>Update</a>
-                    <a href="/user/password" class = primary-btn>Change Password</a>
-                </th>
-            </tr>
-             <table cellpadding="20" width="80">
-             <tr>
-                 <th class="text-left"> Announcement</th>
-                  <th class="text-left"> Rate</th>
-                  <th class="text-left"> Subject</th>
-                  <th class="text-left"> Comment</th>
-                  <th class="text-left"> Status</th>
-                  <th class="text-left"> Detail</th>
-             </tr>
-
-                 {% for rs in comments %}
-                     <tr>
-                        <td  class="text-left">
-                        <a href ="/announcement/ {{ rs.announcement_id }} /{{ rs.announcement.slug }}">{{ rs.title }}</a></td>
-                         <td  class="text-left"> {{ rs.rate }}</td>
-                         <td  class="text-left"> {{ rs.subject }}</td>
-                         <td  class="text-left"> {{ rs.comment }}</td>
-                         <td  class="text-left"> {{ rs.status }}</td>
-                         <td  class="text-left"> <a class=" primary-btn" href="/user/deletecomment/{{ rs.id }}" onclick="return confirm('Are you Sure')">Delete </a></td>
-                     </tr>
-                 {% endfor %}
-
-
-             </table>
         </div>
+        <div class="mainbar" style="float:left;width:690">
+
+
+            <div class="article">
+                <h2><span>User Comments </span></h2>
+<!--                <tr>
+                    <th class="text-left">
+                        <a href="/user/update" class=primary-btn>Update</a>
+                        <a href="/user/password" class=primary-btn>Change Password</a>
+                    </th>
+                </tr>-->
+                <table cellpadding="20" width="80">
+                    <tr>
+                        <th class="text-left"> Announcement</th>
+                        <th class="text-left"> Rate</th>
+                        <th class="text-left"> Subject</th>
+                        <th class="text-left"> Comment</th>
+                        <th class="text-left"> Status</th>
+                        <th class="text-left"> Detail</th>
+                    </tr>
+
+                    {% for rs in comments %}
+                    <tr>
+                        <td class="text-left">
+                        <a href="/announcement/ {{ rs.announcement_id }} /{{ rs.announcement.slug }}">{{rs.announcement}}</a>
+                        </td>
+                        <td class="text-left"> {{ rs.rate }}</td>
+                        <td class="text-left"> {{ rs.subject }}</td>
+                        <td class="text-left"> {{ rs.comment }}</td>
+                        <td class="text-left"> {{ rs.status }}</td>
+                        <td class="text-left">
+                               <a href="/user/deletecomment/{{ rs.id }}" type="button" onclick="return confirm('Are you Sure')" class="btn btn-danger">Delete
+                            </a>
+<!--                            <a class=" primary-btn" href="/user/deletecomment/{{ rs.id }}"-->
+<!--                                                 onclick="return confirm('Are you Sure')">Delete </a>-->
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
         </div>
-         {% include "user_panel.html" %}
-          <div class="clr"></div>
+        <div class="clr"></div>
     </div>
-  </div>
+</div>
 
 {% endblock %}

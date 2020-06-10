@@ -31,8 +31,10 @@
 
             </div>
             <div class="clr"></div>
+            <div class="clr"></div>
 
             <div class="article">
+
                 {%if comments %}
                 <h2><span>3</span> Responses</h2>
                 <div class="clr"></div>
@@ -41,24 +43,28 @@
 
                     <p>{{ comment.comment }}</p>
                 </div>
-                <!--                {% empty %}-->
-                <!--                <h2><span>0</span> Yotum yokki</h2>-->
+
                 {% endfor %}
                 {% else %}
                 <h2><span>0</span> Yotum yokki</h2>
                 {% endif %}
             </div>
+            <div class="clr"></div>
+
             <div class="article">
                 <h2><span>Leave a</span> Reply</h2>
                 <form action="/announcement/addcomment/{{ announcement.id }}" method="post">
                     {% csrf_token %}
                     <ol>
                         <li>
-                            <label for="id_subject"> Konu (required)</label>
-                            <input class="input form-control" type="text" id="id_subject" name="subject" placeholder="Subject"/>
+                            <label for="id_subject"> Subject (required)</label>
+                            <input class="input form-control" type="text" id="id_subject" name="subject"
+                                   placeholder="Subject"/>
                         </li>
 
                         <li>
+                            <label for="id_subject"> Rate (required)</label>
+
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -66,16 +72,7 @@
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                 <!--           <input type="radio" id="star5" name="rate" value="5"/><label
-                                for="star5"></label>
-                            <input type="radio" id="star4" name="rate" value="5"/><label
-                                for="star4"></label>
-                            <input type="radio" id="star3" name="rate" value="5"/><label
-                                for="star3"></label>
-                            <input type="radio" id="star2" name="rate" value="5"/><label
-                                for="star2"></label>
-                            <input type="radio" id="star1" name="rate" value="5"/><label
-                                for="star1"></label>-->
+
                         </li>
                         <li>
                             <label for="id_comment">Your Message</label>

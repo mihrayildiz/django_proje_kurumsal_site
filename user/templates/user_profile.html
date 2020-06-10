@@ -5,7 +5,7 @@
 {% block  description %} {{ setting.description }} {% endblock %}
 
 {% block head %}
-<link rel ='shortcut icon' type="image/icon" href = '{{setting.icon.url}}' />
+<link rel='shortcut icon' type="image/icon" href='{{setting.icon.url}}'/>
 {% endblock %}
 
 {% block  slider %}
@@ -15,59 +15,63 @@
 {% block  body %}
 
 
-
-
 <div class="content">
     <div class="content_resize">
-        <div class="mainbar">
+        <div class="sidebar">
+            {% include "user_panel.html" %}
+
+        </div>
+        <div class="mainbar" style="float:left;width:690">
 
 
-        <div class="article">
-            <h2><span>User Information </span></h2>
-            <tr>
-                <th class="text-left">
-                    <a href="/user/update" class = primary-btn>Update</a>
-                    <a href="/user/password" class = primary-btn>Change Password</a>
-                </th>
-            </tr>
-             <table cellpadding="20" width="80">
-             <tr>
-                 <th>Images</th>
-                   <td> <img src ="{{ profile.image.url }}" height="70" weight="70"></a></td>
-             </tr>
-                <th> Name Surname</th>
-                  <td> {{ profile.user_name }} </td>
-                 <tr>
-                 <tr>
-                 <th>Email</th>
-                   <td> {{ profile.user.email }} </td>
-             </tr>
-                 <tr>
-                 <th>Phone</th>
-                   <td> {{ profile.phone }} </td>
-                 </tr>
-                 <tr>
-                 <th>Adress</th>
-                     <td> {{ profile.adress }} </td>
-                 </tr>
-                 <tr>
-                 <th>City</th>
-                     <td> {{ profile.city }} </td>
-                 </tr>
-                 <tr>
-                 <th>Country</th>
-                     <td> {{ profile.country }} </td>
-                 </tr>
+            <div class="article">
+                <h2><span>User Information </span></h2>
+                <tr>
+                    <th class="text-left">
+                        <a href="/user/update" type="button" class="btn btn-warning">Update</a>
+                        <a href="/user/password" type="button" class="btn btn-primary">Change Password</a>
+<!--                        <a href="/user/update" class=primary-btn>Update</a>-->
+<!--                        <a href="/user/password" class=primary-btn>Change Password</a>-->
+                    </th>
+                </tr>
+                <table cellpadding="20" width="80">
+                    <tr>
+                        <th>Images</th>
+                        <td><img src="{{ profile.image.url }}" height="70" weight="70"></a></td>
+                    </tr>
+                    <th> Name Surname</th>
+                    <td> {{ profile.user_name }}</td>
+                    <tr>
+                    <tr>
+                        <th>Email</th>
+                        <td> {{ profile.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td> {{ profile.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adress</th>
+                        <td> {{ profile.adress }}</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td> {{ profile.city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Country</th>
+                        <td> {{ profile.country }}</td>
+                    </tr>
 
-        </table>
+                </table>
 
+
+            </div>
 
         </div>
 
-        </div>
-         {% include "user_panel.html" %}
-          <div class="clr"></div>
+        <div class="clr"></div>
     </div>
-  </div>
+</div>
 
 {% endblock %}

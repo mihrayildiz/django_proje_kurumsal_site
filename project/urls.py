@@ -22,11 +22,12 @@ from home import views
 
 urlpatterns = [
     path('', include('home.urls')),
+    path('home/', include('home.urls')),
+    path('user/', include('user.urls')),
     path('aboutus/', views.aboutus, name='aboutus'),
     path('references/', views.references, name='references'),
     path('contactus/', views.contactus, name='contactus'),
     path('admin/', admin.site.urls),
-    path('home/', include('home.urls')),
     path('menu/', include('menu.urls')),
     path('announcement/', include('announcement.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_products, name ='category_products'),
@@ -36,12 +37,13 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout_view'),
     path('login/', views.login_view, name='login_view'),
     path('join/', views.join_view, name='join_view'),
-    path('user/', include('user.urls')),
     path('faq/', views.faq, name='faq'),
     path('menu/<int:id>', views.menu, name='menu'),
     path('menu/<int:id>/<slug:slug>', views.content_detail, name='content_detail'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-
+    # path('comments/', views.comments, name='comments'),
+    # path('contents/', views.contents, name='contents'),
+    # path('contentedit/<int:id>', views.contentedit, name='contentedit'),
 
 
 

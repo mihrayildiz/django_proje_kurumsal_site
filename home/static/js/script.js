@@ -26,6 +26,10 @@ $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
 
   return false;
 });
+
+/*  $( function() {
+    $("#accordion").accordion();
+  } );*/
 // Cufon
 Cufon.replace('h1, h2, h3, h4, h5, h6, .article a.com', { hover: true });
 //Cufon.replace('h1', { color: '-linear-gradient(#fff, #ffaf02)'});
