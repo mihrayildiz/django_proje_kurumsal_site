@@ -128,8 +128,6 @@ class CommentForm(ModelForm):
         model = Comment
         fields = ['subject','comment','rate']
 
-
-
 class Images (models.Model):
     announcement = models.ForeignKey(Announcement,on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True)
