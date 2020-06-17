@@ -39,19 +39,21 @@
                         <th class="text-left"> Title</th>
                         <th class="text-left"> Type</th>
                         <th class="text-left"> Menu</th>
+                        <th class="text-left"> Gallery</th>
                         <th class="text-left"> Status</th>
                         <th class="text-left"> Detail</th>
                     </tr>
 
                     {% for rs in contents %}
                     <tr>
-                        <td class="text-left">
-                            &nbsp; <a href="/content/{{ rs.id }}/{{ rs.slug }}">
+                       <!-- <td class="text-left">
+                            &nbsp; <a href="/content/{{ rs.id }}/{{ rs.slug }}"></a></td>-->
                         <td class="text-left"><img src="{{ rs.image.url }}" width="50" height="50"> </a></td>
 
                         <td class="text-left"> {{ rs.title }}</td>
                         <td class="text-left"> {{ rs.type }}</td>
                         <td class="text-left"> {{ rs.menu.title }}</td>
+                        <td class="text-left"> <a href="javascript:;" onclick="window.open('/user/contentaddimage/{{ rs.id }}','gallery','height=600,width=800,top=50,left=150')">Gallery</a></td>
                         <td class="text-left"> {{ rs.status }}</td>
                         <td class="text-left">
                             <a href="/user/contentedit/{{ rs.id }}" type="button" class="btn btn-warning">Edit

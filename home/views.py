@@ -250,6 +250,7 @@ def content_detail(request, id, slug):
     category = Category.objects.all()
     sliderdata = Announcement.objects.all()
     menu = Menu.objects.all()
+    images=Images.objects.filter(announcement_id=id)
     content = Content.objects.get(pk=id)
     setting = Settings.objects.get(pk=1)
 
@@ -258,7 +259,8 @@ def content_detail(request, id, slug):
         'content': content,
         'menu': menu,
         'setting': setting,
-        'sliderdata': sliderdata
+        'sliderdata': sliderdata,
+        'images':images
     }
     return render(request, 'content_detail.html', context)
 
