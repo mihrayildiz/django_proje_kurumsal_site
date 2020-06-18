@@ -138,6 +138,8 @@ def announcement_search(request):
         form =SearchForm(request.POST)
         if form.is_valid():
             category = Category.objects.all()
+            menu = Menu.objects.all()
+            sliderdata = Announcement.objects.all()
 
             query = form.cleaned_data['query']
             catid = form.cleaned_data['catid']
@@ -146,11 +148,14 @@ def announcement_search(request):
 
             else:
                 announcement = Announcement.objects.filter(title__icontains=query,category_id=catid)
+
+
             context = { 'announcement':announcement,
                         'category':category,
+                        'menu': menu,
+                        'sliderdata': sliderdata
 
-
-                        }
+             }
             return render(request,'announcement_search.html',context)
     return HttpResponseRedirect('/')
 
@@ -189,11 +194,18 @@ def login_view(request):
             return HttpResponseRedirect('/')
         else:
 
-            messages.warning(request, "Kullanıcı adı yada Şifre yanlış")
+            messages.warning(request, "Username  or Password False")
             return HttpResponseRedirect('/login')
     category = Category.objects.all()
 
-    context = {'category':category,}
+    menu = Menu.objects.all()
+
+    sliderdata = Announcement.objects.all()
+
+    context = {'category':category,
+               'menu': menu,
+               'sliderdata': sliderdata
+               }
     return render(request, 'login.html', context)
 
 def join_view(request):
@@ -210,16 +222,22 @@ def join_view(request):
             data.user_id = current_user.id
             data.image ="images/users/iconuser.jpg"
             data.save()
-            messages.success(request,"Kullanıcı oluşturuldu.")
+            messages.success(request,"welcome.")
 
             # Redirect to a success page.
             return HttpResponseRedirect('/')
     form = JoinForm()
 
     category = Category.objects.all()
+    menu = Menu.objects.all()
+
+    sliderdata = Announcement.objects.all()
 
     context = {'category': category,
-               'form': form,}
+               'form': form,
+               'menu': menu,
+               'sliderdata': sliderdata
+               }
     return render(request, 'join.html', context)
 
 
