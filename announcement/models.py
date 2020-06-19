@@ -110,7 +110,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     subject = models.CharField(max_length=50, blank = True)
     comment = models.TextField(max_length=200,blank = True)
-    rate = models.IntegerField(blank=True)
+    rate = models.IntegerField()
     status = models.CharField(max_length=10, choices=STATUS,default="New")
     ip = models.CharField(blank=True, max_length=20)
     # create_at = models.DataTimeField(auto_now_add=True)

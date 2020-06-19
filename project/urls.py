@@ -41,10 +41,9 @@ urlpatterns = [
     path('menu/<int:id>', views.menu, name='menu'),
     path('menu/<int:id>/<slug:slug>', views.content_detail, name='content_detail'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    # path('comments/', views.comments, name='comments'),
+    #path('comments/', views.comments, name='comments'),
     # path('contents/', views.contents, name='contents'),
     # path('contentedit/<int:id>', views.contentedit, name='contentedit'),
-
 
 
 

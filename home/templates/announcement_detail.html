@@ -69,17 +69,20 @@
             <div class="article">
 
                 {%if comments %}
-                <h2><span>3</span> Responses</h2>
+                <h2> Hakkında Yapılan Yorumlar</h2>
                 <div class="clr"></div>
                 {% for comment in comments %}
+                 <p> {{ comment.user.first_name }}</p>
                 <div class="comment"><a href="#">{{ comment.subject }}</a>
 
                     <p>{{ comment.comment }}</p>
+                    <p>{{ comment.rate }}</p>
+
                 </div>
 
                 {% endfor %}
                 {% else %}
-                <h2><span>0</span> Hakkında  Yorum Bulunmamaktadır</h2>
+                <h2><span>0</span> / Hakkında  Yorum Bulunmamaktadır</h2>
                 {% endif %}
             </div>
             <div class="clr"></div>
@@ -96,14 +99,14 @@
                         </li>
 
                         <li>
-                            <label for="id_subject"> Rate (required)</label>
+                            <label for="exampleFormControlSelect1"> Rate (required)</label>
 
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="1" id="value1" name="rate">1</option>
+                                <option value="2" id="value2" name="rate">2</option>
+                                <option value="3" id="value3"name="rate">3</option>
+                                <option value="4" id="value4"name="rate">4</option>
+                                <option value="5" id="value5" name="rate">5</option>
                             </select>
 
                         </li>
